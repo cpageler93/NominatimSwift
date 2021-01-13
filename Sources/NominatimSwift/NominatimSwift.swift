@@ -19,11 +19,12 @@ public class NominatimSwift {
     public func search(_ searchOptions: SearchOptions, completion: @escaping ([SearchResult]?) -> Void) {
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "format", value: "jsonv2"),
+            URLQueryItem(name: "q", value: searchOptions.query),
             URLQueryItem(name: "street", value: searchOptions.street),
             URLQueryItem(name: "city", value: searchOptions.city),
             URLQueryItem(name: "postalCode", value: searchOptions.postalCode),
             URLQueryItem(name: "country", value: searchOptions.country),
-        ]
+        ].filter({ $0.value != nil })
         var urlComponents = URLComponents(string: "https://nominatim.openstreetmap.org/search")
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else {
