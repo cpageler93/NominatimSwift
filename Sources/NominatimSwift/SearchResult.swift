@@ -16,5 +16,4 @@ public struct SearchResult: Codable {
     public var category: String?
     public var type: String?
 
-
 }

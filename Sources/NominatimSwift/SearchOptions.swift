@@ -11,12 +11,12 @@ import Foundation
 
 public struct SearchOptions {
 
-    var street: String?
-    var city: String?
-    var postalCode: String?
-    var country: String?
+    public var street: String?
+    public var city: String?
+    public var postalCode: String?
+    public var country: String?
 
-    init(street: String?, city: String?, postalCode: String?, country: String?) {
+    public init(street: String?, city: String?, postalCode: String?, country: String?) {
         self.street = street
         self.city = city
         self.postalCode = postalCode
